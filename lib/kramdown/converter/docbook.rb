@@ -150,8 +150,8 @@ module Kramdown
       # # A list of all Docbook tags that need to have a body (even if the body is empty).
       # Docbook_TAGS_WITH_BODY=['div', 'span', 'script', 'iframe', 'textarea', 'a'] # :nodoc:
 
-      # def convert_html_element(el, indent)
-      #   res = inner(el, indent)
+      def convert_html_element(el, indent)
+        res = inner(el, indent)
       #   if el.options[:category] == :span
       #     "<#{el.value}#{html_attributes(el.attr)}" << (!res.empty? || Docbook_TAGS_WITH_BODY.include?(el.value) ? ">#{res}</#{el.value}>" : " />")
       #   else
@@ -170,7 +170,7 @@ module Kramdown
       #     output << "\n" if @stack.last.type != :html_element || @stack.last.options[:content_model] != :raw
       #     output
       #   end
-      # end
+      end
 
       def convert_xml_comment(el, indent)
         if el.options[:category] == :block && (@stack.last.type != :html_element || @stack.last.options[:content_model] != :raw)
